@@ -1,3 +1,9 @@
+<mat-card class="description">
+    <div >
+      <h1>Score Card Configuration</h1>
+    </div>
+</mat-card>
+
 <mat-card class="specsContainer">
         <div class="courseSpecs">
           <h1 *ngIf="courseInfo.name" >{{ courseInfo.name }}</h1>
@@ -21,18 +27,29 @@
                 </div>
 
                 <div class="playersContainer">
-                        <mat-form-field *ngFor="let player of numPlayers" class="playerInfo" appearance="fill" floatPlaceholder="always" color="accent">
-                            <mat-label>Name</mat-label>
-                            <input
-                            matInput
-                            formControlName="name"
-                            class="playerName"
-                            type="text"
-                            name="name"
-                            placeholder="name"
-                            />
-                        </mat-form-field>
+                    <mat-form-field *ngFor="let player of numPlayers" class="playerInfo" appearance="fill" floatPlaceholder="always" color="accent">
+                        <mat-label>Name</mat-label>
+                        <input
+                        matInput
+                        formControlName="name"
+                        class="playerName"
+                        type="text"
+                        name="name"
+                        placeholder="name"
+                        />
+                        <h3>Handicap</h3>
+                        <mat-slide-toggle></mat-slide-toggle>
+                    </mat-form-field>
                 </div>
+
+                <button *ngIf="numPlayers.length > 0"
+                    mat-raised-button
+                    type="submit"
+                    color="secondary"
+                    style="display: block;"
+                >
+                    Generate Scorecard
+                </button>
 
 
           </form>

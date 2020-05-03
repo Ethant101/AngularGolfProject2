@@ -1,3 +1,12 @@
+.description {
+    margin: 10px;
+    background-color: #2a2a2a;
+    color:white;
+    display:flex;
+    justify-content: center;
+    border:2px solid white;
+  }
+
 .specsContainer {
     background-color:#4a4a4a;
     color:#dadfea;
@@ -12,9 +21,9 @@
             }
             .numPlayersContainer {
                 height:40px;
-                width:20%;
+                width:100%;
                 display:flex;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 .numPlayersDisplay {
                     font-size: 1.25em;
@@ -32,6 +41,11 @@
                         background-color: #333333;
                         transform: scale(1.3);
                     }
+                }
+            }
+            .playersContainer {
+                .playerInfo {
+                    margin:10px;
                 }
             }
         }
