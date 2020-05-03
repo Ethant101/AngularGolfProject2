@@ -12,6 +12,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatRadioModule } from "@angular/material/radio"
 
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -35,7 +37,9 @@ import { CoursePageComponent } from './components/course-page/course-page.compon
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

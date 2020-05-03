@@ -1,0 +1,39 @@
+.specsContainer {
+    background-color:#4a4a4a;
+    color:#dadfea;
+    .courseSpecs {
+        .courseForm {
+            display:flex;
+            justify-content: flex-start;
+            align-items: start;
+            flex-direction: column;
+            .difficulty {
+                padding-left: 20px;
+            }
+            .numPlayersContainer {
+                height:40px;
+                width:20%;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                .numPlayersDisplay {
+                    font-size: 1.25em;
+                }
+                .numPlayersButtons {
+                    display:flex;
+                    flex-direction: column;
+                    i {
+                        transition: .3s ease;
+                        background-color:#2a2a2a;
+                        padding:5px;
+                        border-radius: 50%;
+                    }
+                    i:hover {
+                        background-color: #333333;
+                        transform: scale(1.3);
+                    }
+                }
+            }
+        }
+    }
+}

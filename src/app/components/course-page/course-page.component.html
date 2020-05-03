@@ -1,5 +1,40 @@
-<mat-card>
-        <div class="courseName">
-          <h1>{{ courseInfo.name }}</h1>
+<mat-card class="specsContainer">
+        <div class="courseSpecs">
+          <h1 *ngIf="courseInfo.name" >{{ courseInfo.name }}</h1>
+          <form class="courseForm" >
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button
+                        class="difficulty"
+                        *ngFor="let skill of courseInfo.holes[0].teeBoxes" 
+                        [value]="skill.teeType">{{skill.teeType}}
+                    </mat-radio-button>
+                </mat-radio-group>
+
+                <div style="background-color:#dadfea; width:100%; height:1px; margin:10px;"></div>
+
+                <div class="numPlayersContainer">
+                    <div class="numPlayersDisplay">Number of Players: {{ numPlayers.length }} </div>
+                    <div class="numPlayersButtons">
+                            <i class="fas fa-arrow-up" (click)="HandleNumPlayers(1)"></i>
+                            <i class="fas fa-arrow-down" (click)="HandleNumPlayers(-1)"></i>
+                    </div>
+                </div>
+
+                <div class="playersContainer">
+                        <mat-form-field *ngFor="let player of numPlayers" class="playerInfo" appearance="fill" floatPlaceholder="always" color="accent">
+                            <mat-label>Name</mat-label>
+                            <input
+                            matInput
+                            formControlName="name"
+                            class="playerName"
+                            type="text"
+                            name="name"
+                            placeholder="name"
+                            />
+                        </mat-form-field>
+                </div>
+
+
+          </form>
         </div>
-    </mat-card>
+</mat-card>
