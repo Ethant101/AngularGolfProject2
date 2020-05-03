@@ -1,0 +1,12 @@
+<mat-toolbar color="secondary" class="navContainer">
+    <div class="logoContainer" style="cursor:pointer;">
+        <img src="../../../assets/GolfLogo.png" alt="logo" title="golf" routerLink="home">
+    </div>
+    <button mat-button class="navCourses"[matMenuTriggerFor]="Courses">Courses</button>
+    
+</mat-toolbar>
+
+
+<mat-menu #Courses="matMenu">
+    <button mat-menu-item *ngFor="let course of courseList">{{ course.name }}</button>
+</mat-menu>

@@ -1,0 +1,17 @@
+<mat-card>
+    <div class="description">
+      <h1>Select a course to get started</h1>
+    </div>
+</mat-card>
+
+
+
+<div class="courseContainer">
+  <div *ngFor="let course of courseList" class="course" [routerLink]="['/course-page/', course.id]">
+    <img [src]="course.image" alt="courseImg">
+    <div class="content"> 
+      <div class='test'>{{ course.name }}</div>
+    </div>
+  </div>
+</div>
+  

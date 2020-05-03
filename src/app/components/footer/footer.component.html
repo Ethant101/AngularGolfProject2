@@ -1,0 +1,26 @@
+<div class="footer">
+    <mat-card class="footerContainer">
+      <div class="account">
+        <div routerLink="user-profile">
+          Account
+        </div>
+        <!-- ng if else (logged in) will change route-->
+      </div>
+      <div class="socialMedia">
+        <i class="fab fa-reddit reddit"></i>
+        <i class="fab fa-youtube youtube"></i>
+        <i class="fab fa-facebook-f facebook"></i>
+        <i class="fab fa-twitter twitter"></i>
+        <i class="fab fa-instagram instagram"></i>
+      </div>
+  
+      <div class="speedTest">
+        <a href="https://fast.com/" target="_blank">Speed Test</a>
+      </div>
+    </mat-card>
+  </div>
+  
+  <button id="scrollButton" class="backtotop" (click)="handleToTop()">
+    <span title="Back to Top"><i class="fas fa-angle-double-up"></i></span>
+  </button>
+  
