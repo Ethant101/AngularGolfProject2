@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from "src/environments/environment";
 
 
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -15,12 +18,15 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CoursePageComponent } from './components/course-page/course-page.component';
+import { ScoreCardComponent } from './components/score-card/score-card.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,9 +36,12 @@ import { CoursePageComponent } from './components/course-page/course-page.compon
     NavBarComponent,
     CourseListComponent,
     FooterComponent,
-    CoursePageComponent
+    CoursePageComponent,
+    ScoreCardComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -45,6 +54,10 @@ import { CoursePageComponent } from './components/course-page/course-page.compon
     MatRadioModule,
     MatInputModule,
     MatSlideToggleModule,
+    FormsModule
+
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

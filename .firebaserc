@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "golfproject-d67c0": {
+      "hosting": {
+        "AngularGolf2": [
+          "golfproject-d67c0"
+        ]
+      }
+    }
+  }
+}

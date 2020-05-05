@@ -7,8 +7,8 @@
 <mat-card class="specsContainer">
         <div class="courseSpecs">
           <h1 *ngIf="courseInfo.name" >{{ courseInfo.name }}</h1>
-          <form class="courseForm" >
-                <mat-radio-group aria-label="Select an option">
+          <div class="courseForm" >
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="courseSpec.difficulty">
                     <mat-radio-button
                         class="difficulty"
                         *ngFor="let skill of courseInfo.holes[0].teeBoxes" 
@@ -19,7 +19,7 @@
                 <div style="background-color:#dadfea; width:100%; height:1px; margin:10px;"></div>
 
                 <div class="numPlayersContainer">
-                    <div class="numPlayersDisplay">Number of Players: {{ numPlayers.length }} </div>
+                    <div class="numPlayersDisplay">Number of Players: {{ courseSpec.players.length }} </div>
                     <div class="numPlayersButtons">
                             <i class="fas fa-arrow-up" (click)="HandleNumPlayers(1)"></i>
                             <i class="fas fa-arrow-down" (click)="HandleNumPlayers(-1)"></i>
@@ -27,31 +27,38 @@
                 </div>
 
                 <div class="playersContainer">
-                    <mat-form-field *ngFor="let player of numPlayers" class="playerInfo" appearance="fill" floatPlaceholder="always" color="accent">
+                    <mat-form-field *ngFor="let player of courseSpec.players; let i = index"  class="playerInfo" appearance="fill" floatPlaceholder="always" color="accent">
                         <mat-label>Name</mat-label>
                         <input
                         matInput
-                        formControlName="name"
+                        [(ngModel)]="player.name"
+
                         class="playerName"
                         type="text"
-                        name="name"
                         placeholder="name"
+                        [ngModelOptions]="{ standalone:true }"
                         />
                         <h3>Handicap</h3>
-                        <mat-slide-toggle></mat-slide-toggle>
+                        <mat-slide-toggle 
+                            [(ngModel)]="player.handicap" 
+                            [ngModelOptions]="{ standalone:true }"
+                        ></mat-slide-toggle>
                     </mat-form-field>
                 </div>
 
-                <button *ngIf="numPlayers.length > 0"
+                <!-- TODO: change ngif to target if form is complete and numplayers.length > 0 -->
+                <button *ngIf="courseSpec.players.length > 0"
                     mat-raised-button
                     type="submit"
                     color="secondary"
                     style="display: block;"
+                    routerLink="/score-card"
+                    (click)="generateCard()"
                 >
                     Generate Scorecard
                 </button>
 
 
-          </form>
+            </div>
         </div>
 </mat-card>
