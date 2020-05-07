@@ -4,6 +4,7 @@ import { CourseAPIService } from '../../services/course-api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CardService } from '../../services/card.service';
 import { Game } from '../../models/game';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-course-page',
@@ -19,6 +20,7 @@ export class CoursePageComponent implements OnInit {
   courseSpec:Game = {
     courseID: undefined,
     dateCreated: new Date(),
+    cardID: uuid.v4(),
     difficulty: "",
     players: []
   }
@@ -57,6 +59,11 @@ export class CoursePageComponent implements OnInit {
   }
   
   generateCard() {
+    for (let i = 0; i < this.courseSpec.players.length; i++ ) {
+      for(let h = 0; h < 18; h++ ){
+        this.courseSpec.players[i].holes[h] = null;
+      }
+    }
     this.cardService.generateCard(this.courseSpec);
   }
 

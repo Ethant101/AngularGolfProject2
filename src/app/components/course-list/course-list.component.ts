@@ -18,7 +18,6 @@ export class CourseListComponent implements OnInit {
   ngOnInit(): void {
     this.courseAPIService.getCoursesObservable().subscribe(courses => {
       this.courseList = courses.courses;
-      console.log('courses obj: ', this.courseList);
     })
   }
 

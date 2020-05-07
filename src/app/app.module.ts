@@ -19,7 +19,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import { CourseListComponent } from './components/course-list/course-list.component';
@@ -54,6 +54,7 @@ import { FormsModule } from '@angular/forms';
     MatRadioModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatTabsModule,
     FormsModule
 
 

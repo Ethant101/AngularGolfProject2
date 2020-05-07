@@ -1,1 +1,38 @@
-<p>score-card works!</p>
+<mat-tab-group class="tabContainer" mat-align-tabs="center">
+    <mat-tab 
+        *ngFor="let player of currentGame.players" 
+        [label]="player.name"
+        >
+         <!-- courseID async pipe here? ^-->
+        <div class="cardContainer">
+            <div class="labelsContainer">
+                <div class="label">Hole</div>
+                <div class="label">{{ currentGame.difficulty }}</div>
+                <div class="label">Par</div>
+                <div class="label">{{ player.name }}</div>
+            </div>
+            <div class="holeNumbers">
+                <div class="holeColumn" *ngFor="let hole of hardCodeHoles; let i = index"> 
+                    <div class="holeSpec"> {{hole}} </div>
+                    <div class="holeSpec"> yds </div>
+                    <div class="holeSpec"> Par# </div>
+                    <div class="holeSpec"> <input type="number" [value]="player.holes[i]"> </div>
+                </div>
+                <div class="holeSpec" style="border-right: 1px solid black;">Out</div>
+                <div class="holeColumn" *ngFor="let hole of hardCodeHoles2; let i = index">
+                    <div class="holeSpec"> {{hole}} </div>
+                    <div class="holeSpec"> yds </div>
+                    <div class="holeSpec"> Par# </div>
+                    <div class="holeSpec"> <input type="number" [value]="player.holes[i + 9]"> </div>
+                </div>
+                <div>In</div>
+                <div>Net</div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+<button mat-raised-button color="primary">
+    Save
+    <span class="material-icons">save</span>
+</button>

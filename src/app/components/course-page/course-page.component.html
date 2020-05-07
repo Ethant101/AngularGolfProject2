@@ -6,7 +6,7 @@
 
 <mat-card class="specsContainer">
         <div class="courseSpecs">
-          <h1 *ngIf="courseInfo.name" >{{ courseInfo.name }}</h1>
+          <h1 *ngIf="courseInfo" >{{ courseInfo.name }}</h1>
           <div class="courseForm" >
                 <mat-radio-group aria-label="Select an option" [(ngModel)]="courseSpec.difficulty">
                     <mat-radio-button

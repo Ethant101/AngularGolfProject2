@@ -1,0 +1,39 @@
+
+// .mat-tab-label .mat-tab-label-content {
+//     color:white;
+
+// }
+.tabContainer {
+    background-color:#dadfea;
+    .cardContainer {
+        display: flex;
+        justify-content: flex-start;
+        .labelsContainer {
+            display:flex;
+            flex-direction: column;
+            font-size:1.4em;
+            .label {
+                padding:10px;
+            }
+        }
+        .holeNumbers {
+            display:flex;
+            flex-direction: row;
+            .holeColumn {
+                border-right: 1px solid black;
+                .holeSpec {
+                    display:flex;
+                    justify-content: center;
+                    font-size:1.4em;
+                    padding:10px;
+                    input {
+                        height:20px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
