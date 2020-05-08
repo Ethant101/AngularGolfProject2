@@ -36,7 +36,7 @@ export class CoursePageComponent implements OnInit {
   ngOnInit(): void {
     this.courseSpec.courseID = this.activatedRoute.snapshot.paramMap.get('id');
     this.courseAPIService.getCourseByIdObservable(this.courseSpec.courseID).subscribe(course => {
-      this.courseInfo = course.data;
+      this.courseInfo = course;
       console.log('course obj: ', this.courseInfo);
     })
 

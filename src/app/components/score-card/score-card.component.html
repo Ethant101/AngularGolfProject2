@@ -1,38 +1,44 @@
 <mat-tab-group class="tabContainer" mat-align-tabs="center">
-    <mat-tab 
-        *ngFor="let player of currentGame.players" 
-        [label]="player.name"
+    <ng-container *ngIf="currentGame">
+        <mat-tab 
+            *ngFor="let player of currentGame.players" 
+            [label]="player.name"
         >
-         <!-- courseID async pipe here? ^-->
-        <div class="cardContainer">
-            <div class="labelsContainer">
-                <div class="label">Hole</div>
-                <div class="label">{{ currentGame.difficulty }}</div>
-                <div class="label">Par</div>
-                <div class="label">{{ player.name }}</div>
-            </div>
-            <div class="holeNumbers">
-                <div class="holeColumn" *ngFor="let hole of hardCodeHoles; let i = index"> 
-                    <div class="holeSpec"> {{hole}} </div>
-                    <div class="holeSpec"> yds </div>
-                    <div class="holeSpec"> Par# </div>
-                    <div class="holeSpec"> <input type="number" [value]="player.holes[i]"> </div>
+            <div *ngIf="gameSpec$ | async as gameSpecs">
+                <div class="cardContainer">
+                    <div class="labelsContainer">
+                        <div class="label">Hole</div>
+                        <div class="label">{{ gameSpecs.holes[0].teeBoxes[currentGame.difficulty].teeType }}</div>
+                        <div class="label">Par</div>
+                        <div class="label">{{ player.name }}</div>
+                    </div>
+                    <div class="holeNumbers">
+                        <div class="holeColumn" *ngFor="let hole of hardCodeHoles; let i = index"> 
+                            <div class="holeSpec"> {{hole}} </div>
+                            <div class="holeSpec"> {{ gameSpecs.holes[i].teeBoxes[currentGame.difficulty].yards }}</div>
+                            <div class="holeSpec"> {{ gameSpecs.holes[i].teeBoxes[currentGame.difficulty].par }}</div>
+                            <div class="holeSpec"> <input type="number" [(ngModel)]="player.holes[i]"> </div>
+                        </div>
+                        <div class="holeSpec" style="border-right: 1px solid black;">Out</div>
+                        <div class="holeColumn" *ngFor="let hole of hardCodeHoles2; let i = index">
+                            <div class="holeSpec"> {{hole}} </div>
+                            <div class="holeSpec"> {{ gameSpecs.holes[i + 9].teeBoxes[currentGame.difficulty].yards }} </div>
+                            <div class="holeSpec"> {{ gameSpecs.holes[i + 9].teeBoxes[currentGame.difficulty].par }}</div>
+                            <div class="holeSpec"> <input type="number" [(ngModel)]="player.holes[i + 9]"> </div>
+                        </div>
+                        <div>In</div>
+                        <div>Net</div>
+                    </div>
                 </div>
-                <div class="holeSpec" style="border-right: 1px solid black;">Out</div>
-                <div class="holeColumn" *ngFor="let hole of hardCodeHoles2; let i = index">
-                    <div class="holeSpec"> {{hole}} </div>
-                    <div class="holeSpec"> yds </div>
-                    <div class="holeSpec"> Par# </div>
-                    <div class="holeSpec"> <input type="number" [value]="player.holes[i + 9]"> </div>
-                </div>
-                <div>In</div>
-                <div>Net</div>
             </div>
-        </div>
-    </mat-tab>
+             
+            
+        </mat-tab>
+    </ng-container>
+    
 </mat-tab-group>
 
-<button mat-raised-button color="primary">
+<button class="saveButton" mat-raised-button color="primary" (click)="saveCard()">
     Save
     <span class="material-icons">save</span>
 </button>

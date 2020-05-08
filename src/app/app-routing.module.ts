@@ -22,3 +22,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// TODO: total scores and yardage and par, work on saving and loading better

@@ -1,10 +1,13 @@
+.mat-tab-labels {
+    background-color: #3a3a3a;
+}
+.mat-tab-label .mat-tab-label-content {
+    color:white;
 
-// .mat-tab-label .mat-tab-label-content {
-//     color:white;
-
-// }
+}
 .tabContainer {
-    background-color:#dadfea;
+    background-color:#4a4a4a;
+    color:#dadfea;
     .cardContainer {
         display: flex;
         justify-content: flex-start;
@@ -37,3 +40,6 @@
     }
 }
 
+.saveButton {
+    margin:10px;
+}
