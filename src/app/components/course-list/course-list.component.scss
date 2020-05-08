@@ -54,3 +54,43 @@ mat-card {
 .course:hover .test {
   opacity: 1 !important;
 }
+
+.savedGames {
+  margin: 20px;
+  background-color:#3a3a3a;
+  display:flex;
+  justify-content:flex-start;
+  flex-direction:column;
+  align-items:center;
+  .gameContainer {
+    background-color:#2a2a2a;
+    width: 80%;
+    display:flex;
+    align-items:center;
+    border:2px solid #dadfea;
+    border-radius: 5px;
+    margin: 5px;
+    mat-list-item {
+      color:#dadfea;
+      .playerNames {
+        display:flex;
+        align-items:center;
+        .player {
+          margin:5px;
+        }
+      }
+    }
+    .material-icons {
+      font-size: 2em;
+      margin-right:10px;
+      color:grey;
+    }
+    .material-icons:hover {
+      color:red;
+    }
+  }
+}
+
+.gameContainer:hover {
+  background-color:#1d1d1df0 !important;
+}

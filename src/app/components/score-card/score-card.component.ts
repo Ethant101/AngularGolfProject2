@@ -7,6 +7,7 @@ import { Course } from '../../models/course';
 import { Observable } from 'rxjs';
 import { CardService } from '../../services/card.service';
 import { Hole } from '../../models/hole';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,11 +20,9 @@ export class ScoreCardComponent implements OnInit {
   hardCodeHoles = [1,2,3,4,5,6,7,8,9];
   hardCodeHoles2 = [10,11,12,13,14,15,16,17,18];
 
-  outYds: number[] = [];
-  outPar: number[] = [];
-  outPlayer: number[] = [];
+  firestoreCardIds = [];
 
-  firestoreCardIds = []
+  gameId;
 
   games;
   currentGame;
@@ -34,6 +33,8 @@ export class ScoreCardComponent implements OnInit {
     private db: AngularFirestore,
     private courseAPIService: CourseAPIService,
     private cardService: CardService,
+    private activatedRoute: ActivatedRoute,
+
   ) {
     this.cardRef = this.db.collection('games');
     this.db.collection('games').snapshotChanges().pipe(
@@ -46,25 +47,26 @@ export class ScoreCardComponent implements OnInit {
       })
     ).subscribe(c => {
       this.games = c;
-      this.currentGame = c[0];
-      this.gameSpec$ = this.courseAPIService.getCourseByIdObservable(this.games[0].courseID); 
+      this.currentGame = c[this.gameId ];
+      this.gameSpec$ = this.courseAPIService.getCourseByIdObservable(this.games[this.gameId].courseID); 
       console.log('subscription', c);
     })
   }
   ngOnInit(): void {
-    // this.courseId = this.activatedRoute.snapshot.paramMap.get('id');
-
-    // this.gameSpec$ = this.courseAPIService.getCourseByIdObservable(this.games[0].courseID); 
-    // this.cardService.firestoreCardIds
-    console.log(this.gameSpec$)
+    this.gameId = this.activatedRoute.snapshot.paramMap.get('id');
+    // this.games = this.cardService.games;
+    // this.currentGame = this.cardService.currentGame;
+    // this.cardRef = this.cardService.cardRef;
+    // this.gameSpec$ = this.cardService.gameSpec$;
   }
   saveCard(card: Game) {
-    // this.db.collection('games').doc(this.firestoreCardIds[0]).set(card)
+    console.log(this.firestoreCardIds)
+    this.db.collection('games').doc(this.firestoreCardIds[this.gameId]).set(card)
   }
 
   total(holes: Hole[], type, start, end, playerIndex?) {
     let total = 0;
-    if (type === 'par' || type == 'yards') {
+    if (type === 'par' || type == 'yards' || type == 'hdc') {
       for(let i = start; i < end; i++){
         total += holes[i].teeBoxes[this.currentGame.difficulty][type]
       }

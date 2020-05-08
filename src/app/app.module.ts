@@ -20,6 +20,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from "@angular/material/input";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list';
 
 
 import { CourseListComponent } from './components/course-list/course-list.component';
@@ -55,7 +56,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatSlideToggleModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    MatListModule
 
 
     

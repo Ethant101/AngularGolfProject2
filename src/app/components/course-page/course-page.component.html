@@ -52,7 +52,7 @@
                     type="submit"
                     color="secondary"
                     style="display: block;"
-                    routerLink="/score-card"
+                    [routerLink]="['/score-card', 0]"
                     (click)="generateCard()"
                 >
                     Generate Scorecard

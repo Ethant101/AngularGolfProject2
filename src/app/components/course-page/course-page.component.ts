@@ -19,6 +19,7 @@ export class CoursePageComponent implements OnInit {
   
   courseSpec:Game = {
     courseID: undefined,
+    name: undefined,
     dateCreated: new Date(),
     cardID: uuid.v4(),
     difficulty: "",
@@ -64,6 +65,7 @@ export class CoursePageComponent implements OnInit {
         this.courseSpec.players[i].holes[h] = null;
       }
     }
+    this.courseSpec.name = this.courseInfo.name;
     this.cardService.generateCard(this.courseSpec);
   }
 

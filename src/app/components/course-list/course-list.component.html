@@ -14,4 +14,25 @@
     </div>
   </div>
 </div>
-  
+
+<mat-list *ngIf="games; else noSaved" class="savedGames">
+    <div mat-subheader style="color:#dadfea; font-size:1.3em;">Saved Games</div>
+    <div class="gameContainer" *ngFor="let game of games; let i = index" [routerLink]="['/score-card', i]">
+        <mat-list-item>
+          <div mat-line style="font-size:1.3em;">{{game.name}}</div>
+          <div mat-line class="playerNames">
+            <div>players:</div>
+            <div class="player" *ngFor="let player of game.players">{{player.name}}</div> 
+          </div>
+          <div mat-line> Date created: {{game.dateCreated | date}} </div>
+      </mat-list-item>
+      <span class="material-icons">
+        delete
+      </span>
+    </div>
+</mat-list>
+
+
+<ng-template #noSaved>
+  no games saved yet
+</ng-template>

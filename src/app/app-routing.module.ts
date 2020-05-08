@@ -10,7 +10,7 @@ import { ScoreCardComponent } from './components/score-card/score-card.component
 const routes: Routes = [
   { path: "", redirectTo: 'home', pathMatch: 'full' },
   { path: "course-page/:id", component: CoursePageComponent },
-  { path: "score-card", component: ScoreCardComponent },
+  { path: "score-card/:id", component: ScoreCardComponent },
   { path: "home", component: CourseListComponent },
   
 
