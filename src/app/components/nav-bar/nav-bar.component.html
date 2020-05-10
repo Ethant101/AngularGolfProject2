@@ -8,5 +8,5 @@
 
 
 <mat-menu #Courses="matMenu">
-    <button mat-menu-item *ngFor="let course of courseList">{{ course.name }}</button>
+    <button mat-menu-item *ngFor="let course of courseList" [routerLink]="['/course-page/', course.id]" >{{ course.name }}</button>
 </mat-menu>
