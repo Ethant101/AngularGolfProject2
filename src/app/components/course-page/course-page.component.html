@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- TODO: change ngif to target if form is complete and numplayers.length > 0 -->
-                <button *ngIf="courseSpec.players.length > 0"
+                <button *ngIf="courseSpec.players.length > 0 && courseSpec.difficulty"
                     mat-raised-button
                     type="submit"
                     color="secondary"
