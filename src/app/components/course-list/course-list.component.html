@@ -26,7 +26,7 @@
           </div>
           <div mat-line> Date created: {{game.dateCreated | date}} </div>
       </mat-list-item>
-      <span class="material-icons">
+      <span class="material-icons" (click)="deleteGame(i)">
         delete
       </span>
     </div>

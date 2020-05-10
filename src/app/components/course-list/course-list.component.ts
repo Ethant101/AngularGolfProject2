@@ -41,4 +41,7 @@ export class CourseListComponent implements OnInit {
     })
   }
 
+  deleteGame(index) {
+    this.db.collection('games').doc(this.firestoreCardIds[index]).delete();
+  }
 }
