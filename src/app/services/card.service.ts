@@ -11,6 +11,8 @@ import { CourseAPIService } from './course-api.service';
 })
 export class CardService {
   cardRef: AngularFirestoreCollection;
+
+  oldGames;
   games;
 
   firestoreCardIds = []

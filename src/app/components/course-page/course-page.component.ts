@@ -20,7 +20,7 @@ export class CoursePageComponent implements OnInit {
   courseSpec:Game = {
     courseID: undefined,
     name: undefined,
-    dateCreated: new Date(),
+    dateCreated: new Date().toDateString(),
     cardID: uuid.v4(),
     difficulty: "",
     players: []

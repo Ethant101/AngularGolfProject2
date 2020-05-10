@@ -14,7 +14,7 @@ export class CourseListComponent implements OnInit {
 
   courseList;
   firestoreCardIds = [];
-  games;
+  games = [];
 
   constructor(
     public courseAPIService: CourseAPIService,
